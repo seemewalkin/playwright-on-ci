@@ -1,0 +1,12 @@
+{
+  "name": "eyeo-case-study",
+  "version": "1.0.0",
+  "scripts": {
+    "test:local": "REMOTE_BROWSER=false HEADLESS=false npx playwright test",
+    "test:ci": "REMOTE_BROWSER=true HEADLESS=true npx playwright test",
+    "test": "npm run test:local"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}

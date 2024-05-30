@@ -1,0 +1,46 @@
+name: Playwright Tests on Mac OS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Chromium 
+        run: |
+          curl -L -o chromium.dmg https://distpartners-minio-1.uplink.eyeo.it/eyeo-browser-ad-filtering-releases/Chromium-126.0.6465.0.dmg
+
+      - name: Install Chromium
+        run: |
+          hdiutil attach chromium.dmg -nobrowse -quiet
+          cp -R "/Volumes/Chromium/Chromium.app" /Applications/
+          hdiutil detach $(df | grep "/Volumes/Chromium" | awk '{print $1}') -quiet
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Playwright dependencies
+        run: npm install
+
+      - name: Run Playwright tests
+        run: npm run test
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-html
+          path: playwright-report/index.html
+          retention-days: 30
