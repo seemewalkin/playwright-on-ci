@@ -1,7 +1,8 @@
 # ABP-Chromium-Test-Automation
 
 ![GitHub Actions](https://github.com/seemewalkin/eyeo-case-study/actions/workflows/playwright.yml/badge.svg)
-https://github.com/seemewalkin/eyeo-case-study/actions - Results of CI runs
+
+[Results of CI runs](https://github.com/seemewalkin/eyeo-case-study/actions)
 
 This repository contains the test automation framework and an example of a test that runs against ABP Test Pages using [Playwright](https://playwright.dev/), JavaScript, and a custom Chromium browser with the Adblock Plus extension.
 
