@@ -1,5 +1,7 @@
 # ABP-Chromium-Test-Automation
 
+[![GitHub Actions](https://github.com/seemewalkin/eyeo-case-study/actions/workflows/ci.yml/badge.svg)](https://github.com/seemewalkin/eyeo-case-study/actions/runs/9307682192)
+
 This repository contains the test automation framework and an example of a test that runs against ABP Test Pages using [Playwright](https://playwright.dev/), JavaScript, and a custom Chromium browser with the Adblock Plus extension.
 
 ## Overview
@@ -25,7 +27,7 @@ Initially, I attempted to use GitLab for compliance with Eyeo practices, as you 
 
 1. **Clone the repository**:
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/seemewalkin/eyeo-case-study
    cd eyeo-case-study
 2. **Install the dependencies**:
    ```sh
