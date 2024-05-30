@@ -13,12 +13,10 @@ This repository contains the test automation framework and an example of a test 
 - Playwright automatically waits for elements to be actionable, reducing the flakiness of tests.
 - Playwright supports advanced features like network interception, screenshots, and video recording, which enhance the test automation capabilities.
 
-I could've achieved similar results with Python + Selenium, but the setup would have been more tedious.
-
+I could've achieved similar results with Python (or any convenient language) + Selenium or Appium if would've developed the Android Browser test, but the setup would have been more tedious for Selenium and Android build didn't have URL-link block functionality enabled.
 
 ### Why Github Actions?
-Initially, I attempted to use GitLab for compliance with Eyeo practices, as you host your projects on GitLab. However, I encountered blockers with the Debian x64 images of the browsers (the initially provided browser didn't have a URL filtering mechanic). Upon discovering that GitHub Actions offers free Mac OS runners, I switched to GitHub Actions to demonstrate a working solution effectively. Gitlab doesn't provide hosted Mac OS runners for [now](https://docs.gitlab.com/ee/ci/runners/hosted_runners/macos.html).
-
+Initially, I planned to use GitLab to stay compliant with Eyeo practices, as you host your projects there. However, I ended up implementing my solution using GitHub Actions because I could only replicate the working setup of my solution on Chromium-126.0 for macOS. I encountered several blockers with the Debian x64 images of the browsers, which did not support blocking mechanisms via Link. Since I still needed to demonstrate a successful run, I quickly built a pipeline on GitHub Actions. Fortunately, GitHub Actions provides free macOS runners on its free tier, unlike GitLab CI, which only offers macOS-hosted runners on [Premium and Ultimate](https://docs.gitlab.com/ee/ci/runners/hosted_runners/macos.html) tier accounts. That was quite creative, I didn't expect my challenge to go in that direction :) 
 
 ## Pre-requisites
 
